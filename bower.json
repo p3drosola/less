@@ -1,0 +1,9 @@
+{
+  "name": "less-email",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

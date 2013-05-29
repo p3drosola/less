@@ -1,0 +1,24 @@
+{
+  "name": "less-email",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.2.0",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-regarde": "~0.1.1",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/p3drosola/less-email.git"
+  },
+  "author": ""
+}

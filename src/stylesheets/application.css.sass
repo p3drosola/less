@@ -1,0 +1,61 @@
+$main-color: #5CBF94
+$message-tile-padding: 20px
+$message-title-avatar-size: 66px
+
+body, html
+  padding: 0
+  margin: 0
+  background-color: $main-color
+  font-family: 'Open Sans', sans-serif
+  font-weight: 300
+
+img
+  margin: 0
+
+.message-container
+  display: -webkit-flex
+  -webkit-flex-direction: vertical
+  -webkit-justify-content: space-around
+  /*-webkit-align-items: center;*/
+  -webkit-flex-wrap: wrap
+  margin: 1% 5% 2% 10%
+
+.message-tile
+  position: relative
+  background: white
+  -webkit-flex: 1 1 auto
+  box-shadow: 0 0 17px rgba(0,0,0,.12)
+  padding: $message-tile-padding
+  cursor: pointer
+
+  min-width: 200px
+  min-height: 200px
+
+  max-width: 300px
+  max-height: 300px
+  margin: 3%
+
+.message-tile-sender-name
+  font-size: 25px
+  color: black
+  margin-bottom: 11px
+
+.message-tile-teaser
+  color: black
+  text-overflow: elipsis
+
+.message-tile-avatar-placeholder
+  float: right
+  width: $message-title-avatar-size - $message-tile-padding + 10px /* 10px margin with text */
+  height: $message-title-avatar-size - $message-tile-padding + 10px
+
+.message-tile-avatar
+  width: $message-title-avatar-size
+  height: $message-title-avatar-size
+  position: absolute
+  right: 0
+  bottom: 0
+
+
+[draggable]
+  user-select: none;
