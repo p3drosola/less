@@ -3,10 +3,14 @@
   <title>LessMail</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="stylesheets/application.css">
-</head>
-<body>
 
-  <div class="message-container">
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="javascripts/application.js"></script>
+</head>
+<body class="s-inbox">
+  <div class="inbox">
+    <div class="tiles-container">
+
       <div class="message-tile" draggable="true">
         <div class="message-tile-sender-name">Anabelle Black</div>
         <div class="message-tile-teaser">
@@ -15,35 +19,23 @@
           <div class="message-tile-avatar" style="background-image: url(images/avatar1.png)"></div>
         </div>
       </div>
-      <div class="message-tile">
-      </div>
-      <div class="message-tile">
-        <div class="message-inner">
-          foo
-        </div>
-      </div>
-      <div class="message-tile">
-        <div class="message-inner">
-          foo
-        </div>
-      </div>
-      <div class="message-tile">
-        <div class="message-inner">
-          foo
-        </div>
-      </div>
-      <div class="message-tile">
-        <div class="message-inner">
-          foo
-        </div>
-      </div>
-      <div class="message-tile">
-        <div class="message-inner">
-          foo
-        </div>
-      </div>
 
+      <div class="message-tile" draggable="true">
+      </div>
+      <div class="message-tile" draggable="true">
+      </div>
+      <div class="message-tile" draggable="true">
+      </div>
+      <div class="message-tile" draggable="true">
+      </div>
+      <div class="message-tile" draggable="true">
+      </div>
+      <div class="message-tile" draggable="true">
+      </div>
     </div>
+
+    <div class="tile-dropzone stash-dropzone"></div>
   </div>
+
 </body>
 </html>

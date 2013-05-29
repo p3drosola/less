@@ -12,9 +12,14 @@ body, html
 img
   margin: 0
 
-.message-container
+[draggable]
+  user-select: none
+
+.inbox
+  -webkit-transition: all 500ms cubic-bezier(0.700, 0.250, 0.480, 0.900)
+
+.tiles-container
   display: -webkit-flex
-  -webkit-flex-direction: vertical
   -webkit-justify-content: space-around
   /*-webkit-align-items: center;*/
   -webkit-flex-wrap: wrap
@@ -22,18 +27,19 @@ img
 
 .message-tile
   position: relative
-  background: white
   -webkit-flex: 1 1 auto
-  box-shadow: 0 0 17px rgba(0,0,0,.12)
+  background: white
+  margin: 3%
   padding: $message-tile-padding
+  box-shadow: 0 0 17px rgba(0,0,0,.12)
+
   cursor: pointer
 
   min-width: 200px
   min-height: 200px
-
   max-width: 300px
   max-height: 300px
-  margin: 3%
+
 
 .message-tile-sender-name
   font-size: 25px
@@ -57,5 +63,15 @@ img
   bottom: 0
 
 
-[draggable]
-  user-select: none;
+
+
+.s-workspace .inbox
+
+  -webkit-transform: scale(0.3)
+
+
+.tile-dropzone
+  background: rgba(0,0,0, .06)
+
+.stash-dropzone
+  position: absolute

@@ -30,6 +30,10 @@ module.exports = function(grunt) {
       css: {
         files: 'src/stylesheets/**/*.{sass,scss,css}',
         tasks: ['compass:dev', 'livereload']
+      },
+      js: {
+        files: 'src/javascripts/**/*.js',
+        tasks: ['copy:js', 'livereload']
       }
     },
     connect: {
@@ -50,11 +54,24 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'src/images', src: '*', dest: 'dist/images'}
         ]
+      },
+      js: {
+        files: [
+          {expand: true, cwd: 'src/javascripts', src: '*', dest: 'dist/javascripts'}
+        ]
+      }
+    },
+    bower: {
+      install: {
+        options: {
+          targetDir: 'dist/lib',
+          cleanTargetDir: true
+        }
       }
     }
   });
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['livereload-start',  'copy:html', 'copy:images', 'connect', 'regarde',]);
+  grunt.registerTask('default', ['livereload-start',  'copy', 'bower', 'connect', 'regarde',]);
 };
