@@ -14,7 +14,7 @@ img {
 
 /* line 15, ../../src/stylesheets/application.css.sass */
 [draggable] {
-  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* line 18, ../../src/stylesheets/application.css.sass */
@@ -41,38 +41,26 @@ img {
   box-shadow: 0 0 17px rgba(0, 0, 0, 0.12);
   cursor: pointer;
   min-width: 200px;
-  min-height: 200px;
   max-width: 300px;
   max-height: 300px;
 }
-/* line 42, ../../src/stylesheets/application.css.sass */
-.message-tile.s-dragging {
-  width: 100px;
-  height: 100px;
-  -webkit-transform: scale(0.3);
-}
 
-/* line 48, ../../src/stylesheets/application.css.sass */
+/* line 43, ../../src/stylesheets/application.css.sass */
 .message-tile-sender-name {
   font-size: 25px;
   color: black;
   margin-bottom: 11px;
 }
 
-/* line 53, ../../src/stylesheets/application.css.sass */
+/* line 48, ../../src/stylesheets/application.css.sass */
 .message-tile-teaser {
   color: black;
-  text-overflow: ellipsis;
+  max-height: 88px;
+  overflow: hidden;
+  padding-right: 56px;
 }
 
-/* line 57, ../../src/stylesheets/application.css.sass */
-.message-tile-avatar-placeholder {
-  float: right;
-  width: 56px;
-  height: 56px;
-}
-
-/* line 62, ../../src/stylesheets/application.css.sass */
+/* line 54, ../../src/stylesheets/application.css.sass */
 .message-tile-avatar {
   width: 66px;
   height: 66px;
@@ -81,17 +69,18 @@ img {
   bottom: 0;
 }
 
-/* line 72, ../../src/stylesheets/application.css.sass */
+/* line 64, ../../src/stylesheets/application.css.sass */
 .s-workspace .inbox {
-  -webkit-transform: scale(0.3);
+  -webkit-transform: scale(0.2);
+  opacity: 0;
 }
 
-/* line 76, ../../src/stylesheets/application.css.sass */
+/* line 68, ../../src/stylesheets/application.css.sass */
 .tile-dropzone {
   background: rgba(0, 0, 0, 0.06);
 }
 
-/* line 79, ../../src/stylesheets/application.css.sass */
+/* line 71, ../../src/stylesheets/application.css.sass */
 .stash-dropzone {
   position: absolute;
 }
