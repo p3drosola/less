@@ -75,5 +75,5 @@ module.exports = function(grunt) {
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['livereload-start',  'copy', 'bower', 'connect', 'regarde',]);
+  grunt.registerTask('default', ['livereload-start', 'compass', 'copy', 'bower', 'connect', 'regarde',]);
 };
