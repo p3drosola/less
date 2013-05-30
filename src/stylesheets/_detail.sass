@@ -1,0 +1,40 @@
+
+
+body.s-detail
+  overflow: hidden /* don't scroll body in overflow view */
+  .detail
+    display: -webkit-flex
+
+  .action-new-message
+    display: none
+
+.detail
+  position: fixed
+  top: 0
+  left: 0
+  display: none /* -webkit-flex */
+  height: 100%
+  width: 100%
+
+  /* initial state, paper is in the middle */
+  .spacer-container
+    width: 90px
+  .paper-container
+    -webkit-flex: 1 1 auto
+    overflow: auto
+    .message-paper
+      max-width: 600px
+      margin: 30px auto 30px auto
+      box-sizing: border-box
+  .input-container
+    -webkit-flex: 0 0 0
+
+
+.message-detail-author
+  font-size: 37px
+  margin-top: 27px
+
+.message-detail-subject
+  font-size: 27px
+  color: #9B9B9B
+  margin-bottom: 20px

@@ -8,13 +8,15 @@ module.exports = function(grunt) {
         options: {
           sassDir: 'src/stylesheets',
           cssDir: 'dist/stylesheets',
-          environment: 'production'
+          environment: 'production',
+          imageDir: 'src/images'
         }
       },
       dev: {
         options: {
           sassDir: 'src/stylesheets',
           cssDir: 'dist/stylesheets',
+          imageDir: 'images'
         }
       }
     },
