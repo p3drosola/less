@@ -5,9 +5,8 @@
   Less.initialize = function () {
 
     Less.ui = {
-      tiles: $('.tiles-container'),
-      tiles_scene: $('.tiles-scene'),
-      tile_dragging: null
+      tiles_container: $('.tiles-container'),
+      tiles_scene: $('.tiles-scene')
     };
 
     Less.initDraggable();
@@ -34,13 +33,22 @@
    */
   Less.onDragTileStart = function (event) {
     console.log('dragstart');
-    Less.showSpace('workspace');
-    Less.ui.tile_dragging = $(this);
+
+    Less.showSpace('workspace'); // zoom out
+    event.originalEvent.dataTransfer.dropEffect = 'move'; // remove the green (+) cursor
+    var avatar = $(this).find('.message-tile-avatar')[0];
+    event.originalEvent.dataTransfer.setDragImage(avatar, 33, 33); // set the drag image
+    setTimeout($.proxy(function () { this.style.opacity = 0; }, this), 0); // hide the tile
   };
 
+  /**
+   * Triggered during the drag operation
+   * @param  {Event} event
+   * @return {Boolean} false
+   */
   Less.onDragTileOver = function (event) {
     console.log('dragover');
-    event.originalEvent.dataTransfer.dropEffect = 'copy'; // the green (+) cursor
+    event.originalEvent.dataTransfer.dropEffect = 'move'; // remove the green (+) cursor
     return false; // Necessary. Allows us to drop.
   };
 
@@ -63,15 +71,17 @@
     this.classList.add('s-dragover');
   };
 
+  /**
+   * When a drag ends, sucessfully or not
+   * @param  {Event} event
+   */
   Less.onDragTileEnd = function (event) {
     console.log('dragend');
     Less.showSpace('inbox');
-    console.log('drag end', Less.ui.tile_dragging);
+    console.log('drag end');
   };
 
-
   Less.initialize();
-
   window.Less = Less;
 }());
 
