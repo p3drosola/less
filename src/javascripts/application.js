@@ -31,6 +31,20 @@
   Less.showDetail = function () {
     Less.showSpace('detail');
     Less.ui.button_new_msg.addClass('s-discard');
+    $(document).on('keydown', Less.showDetailInput);
+    $(document).one('click', '.send-button', Less.hideDetail);
+  };
+
+  Less.hideDetail = function () {
+    $('body').removeClass('s-detail-input s-detail');
+  };
+
+  Less.showDetailInput = function (e) {
+    if (!e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey) {
+      $('body').addClass('s-detail-input');
+      $('.message-input').focus();
+      $(document).off('keypress', Less.showDetailInput);
+    }
   };
 
   /**
