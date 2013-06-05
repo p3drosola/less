@@ -1,0 +1,105 @@
+
+.inbox-wrapper
+  -webkit-transition: all 500ms cubic-bezier(0.700, 0.250, 0.480, 0.900)
+  height: 100%
+
+.inbox
+  display: -webkit-flex
+  height: 100%
+
+.inbox-left
+  width: 50px
+
+.inbox-right
+  overflow: auto
+
+.tiles-container
+  display: -webkit-flex
+  -webkit-justify-content: space-around
+  -webkit-flex-wrap: wrap
+  margin: 1%
+  height: 100%
+  overflow: auto
+
+.message-tile
+  position: relative
+  -webkit-flex: 1 1 auto
+  background: white
+  margin: 3%
+  padding: $message-tile-padding
+  box-shadow: 0 0 17px rgba(0,0,0,.12)
+  cursor: pointer
+  min-width: 200px
+  max-width: 300px
+  max-height: 300px
+
+  .cancel
+    position: absolute
+    top: 10px
+    right: 10px
+    height: 28px
+    width: 28px
+    background: url('/images/icon-cancel.png') center center no-repeat
+    opacity: 0
+    -webkit-transition: opacity 200ms cubic-bezier(0.700, 0.250, 0.480, 0.900)
+
+  &:hover .cancel
+    opacity: 1
+
+.message-tile-sender-name
+  font-size: 25px
+  color: black
+  margin-bottom: 11px
+
+.message-tile-teaser
+  color: black
+  max-height: 88px
+  overflow: hidden
+  padding-right: 56px
+
+.message-tile-avatar
+  width: $message-title-avatar-size
+  height: $message-title-avatar-size
+  position: absolute
+  right: 0
+  bottom: 0
+
+
+.inbox-right-box-wrapper
+  padding: 10% 10% 0 0
+  font-size: 18px
+  .title
+    color: white
+    margin-bottom: 10px
+
+  .todo-list
+    box-shadow: 0 0 17px rgba(0,0,0,.12)
+
+.todo-box
+  background: white
+  // border-bottom: 1px solid rgba(0,0,0, .05)
+  overflow: hidden
+  max-width: 250px
+  padding: 5px 15px
+  white-space: nowrap
+  text-overflow: ellipsis
+
+  &.s-completed
+    text-decoration: line-through
+
+.calendar-item-box
+  background: white
+  padding: 5px 15px 10px
+  box-shadow: 0 0 17px rgba(0, 0, 0, 0.12)
+  .time
+    .relative-time
+      float: right
+      font-size: 12px
+      margin-top: 27px
+      padding: 5px 15px
+      white-space: nowrap
+      text-overflow: ellipsis
+    .hour
+      font-size: 37px
+      .ampm
+        color: #E4E4E4
