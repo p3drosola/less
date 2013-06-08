@@ -49,7 +49,7 @@ module.exports = function(grunt) {
     copy: {
       html: {
         files: [
-          {expand: true, cwd: 'src/', src: ['*'], dest: 'dist/', filter: 'isFile'},
+          {expand: true, cwd: 'src/', src: ['*'], dest: 'dist/', filter: 'isFile'}
         ]
       },
       images: {
@@ -59,21 +59,26 @@ module.exports = function(grunt) {
       },
       js: {
         files: [
-          {expand: true, cwd: 'src/javascripts', src: '*', dest: 'dist/javascripts'}
+          {expand: true, cwd: 'src/javascripts', src: '**', dest: 'dist/javascripts'}
         ]
       }
-    },
-    bower: {
-      install: {
-        options: {
-          targetDir: 'dist/lib',
-          cleanTargetDir: true
-        }
-      }
     }
+
+    // concat: {
+    //   application: {
+    //     src: [
+    //     'src/javascripts/vendor/jquery.*.js',
+    //     'src/javascripts/vendor/underscore.*.js',
+    //     'src/javascripts/application.js'
+    //     ],
+    //     dest: 'dist/javascripts/application.js'
+    //   }
+    // },
+
+
   });
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['livereload-start', 'compass', 'copy', 'bower', 'connect', 'regarde',]);
+  grunt.registerTask('default', ['livereload-start', 'compass', 'copy', 'connect', 'regarde',]);
 };

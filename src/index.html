@@ -5,164 +5,26 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="stylesheets/application.css">
 
+
+  <!-- Libs -->
+  <script src="lib/underscore/underscore.js"></script>
   <script src="lib/jquery/jquery.js"></script>
-  <script src="javascripts/application.js"></script>
+  <script src="lib/backbone/backbone.js"></script>
+  <script src="lib/backbone.marionette/backbone.marionette.js"></script>
+
+  <!-- Scripts -->
+  <script src="javascripts/namespace.js"></script>
+
+  <script src="javascripts/models/thread.js"></script>
+  <script src="javascripts/models/message.js"></script>
+
+  <script src="javascripts/collections/threads.js"></script>
+  <script src="javascripts/collections/messages.js"></script>
+
 </head>
-<body class="s-inbox">
-
-  <div class="action-overlay">
-    <div class="action-new-message clickable"></div>
-  </div>
+<body>
 
 
-  <div class="inbox-wrapper">
-
-    <div class="inbox">
-
-      <div class="inbox-left"></div>
-      <div class="tiles-container">
-
-        <div class="message-tile" draggable="true">
-          <div class="message-tile-sender-name">Anabelle Black</div>
-          <div class="message-tile-teaser">
-            </span class="message-tile-subject"><span>about my diploma : </span> Hey ped, such good news that the certificate arrived! So strange that it did, but that the book didnt right? That means i should leave my uni address as is right?
-
-            <div class="clickable cancel"></div>
-            <div class="message-tile-avatar" style="background-image: url(images/avatar1.png)"></div>
-          </div>
-        </div>
-
-        <div class="message-tile" draggable="true">
-          <div class="message-tile-sender-name">Facebook</div>
-          <div class="message-tile-teaser">
-            </span class="message-tile-subject"><span>Andrea invited you to Sab 1 Giugno First FLoor 10€ U/D | Lista Doris 333.31 21 301 on Facebook : </span> Hi Pedro,
-            Andrea Dorati invited you to Doris Event's event:
-            Sab 1 Giugno First FLoor 10=E2=82=AC U/D | Lista Doris 333.31 21 301
-            June 1
-            Grace Poe, Alberto Thiele Cenzato and Andrea Dorati are guests.
-            View Event:
-            https://www.facebook.com/events/575315762491391/
-            Thanks,
-            The Facebook Teamaddress as is right?
-            <div class="clickable cancel"></div>
-            <div class="message-tile-avatar" style="background-image: url(images/avatar6.png)"></div>
-          </div>
-        </div>
-
-        <div class="message-tile" draggable="true">
-          <div class="message-tile-sender-name">EVO Banco</div>
-          <div class="message-tile-teaser">
-            </span class="message-tile-subject"><span>Hola PEDRO, estas son las nuevas condiciones de tu Cuenta Inteligente EVO : </span> En las últimas semanas se ha producido una bajada de tipos de interés. Para adaptarnos a este nuevo escenario, desde el 31 de julio las nuevas remuneraciones de tu Cuenta Inteligente serán las siguientes
-            <div class="clickable cancel"></div>
-            <div class="message-tile-avatar" style="background-image: url(images/avatar4.png)"></div>
-          </div>
-        </div>
-
-        <div class="message-tile" draggable="true">
-          <div class="message-tile-sender-name">Hipster Bob</div>
-          <div class="message-tile-teaser">
-            </span class="message-tile-subject"><span>Want to grab lunch?</span>
-
-            <div class="clickable cancel"></div>
-            <div class="message-tile-avatar" style="background-image: url(images/avatar5.png)"></div>
-          </div>
-        </div>
-
-        <div class="message-tile" draggable="true">
-          <div class="message-tile-sender-name">Old Georgie</div>
-          <div class="message-tile-teaser">
-            </span class="message-tile-subject"><span>about my diploma : </span> Hey ped, such good news that the certificate arrived! So strange that it did, but that the book didnt right? That means i should leave my uni address as is right?
-
-            <div class="clickable cancel"></div>
-            <div class="message-tile-avatar" style="background-image: url(images/avatar3.png)"></div>
-          </div>
-        </div>
-
-        <div class="message-tile" draggable="true">
-          <div class="message-tile-sender-name">Pablo Nouvelle</div>
-          <div class="message-tile-teaser">
-            </span class="message-tile-subject"><span>check out my new song : </span> It's still quite rough, but let me know what you think
-
-            <div class="clickable cancel"></div>
-            <div class="message-tile-avatar" style="background-image: url(images/avatar2.png)"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="inbox-right">
-        <div class="todo-wrapper inbox-right-box-wrapper">
-          <div class="title">To Do</div>
-          <div class="todo-list">
-            <div class="todo-box">Send Estimate to Drasik</div>
-            <div class="todo-box s-completed">Return package</div>
-            <div class="todo-box">Notice: your creditcard has expired</div>
-          </div>
-        </div>
-        <div class="calendar-wrapper inbox-right-box-wrapper">
-          <div class="title">Calendar for Today</div>
-          <div class="calendar-item-list">
-            <div class="calendar-item-box">
-              <div class="time">
-                <div class="relative-time">in 2 hours</div>
-                <div class="hour">4:00<span class="ampm">pm</span></div>
-              </div>
-              <div class="description">Metting with Juanjo</div>
-            </div>
-          </div>
-          <div class="calendar-item-list">
-            <div class="calendar-item-box">
-              <div class="time">
-                <div class="relative-time"></div>
-                <div class="hour">All Day<span class="ampm"></span></div>
-              </div>
-              <div class="description">BCN Startup Wars</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="tile-dropzone stash-dropzone"></div>
-  </div>
-
-  <div class="detail">
-    <div class="paper-container">
-      <div class="message-paper">
-        <div class="message-detail">
-          <div class="message-detail-header">
-            <img src="images/avatar-big1.png">
-            <div class="message-detail-author">Anabelle Black</div>
-            <div class="message-detail-subject">about my diploma</div>
-            <div class="clickable cancel"></div>
-          </div>
-
-          <p>Hey ped, such good news that the certificate arrived! So strange that it did, but that the book didnt right? That means i should leave my uni address as is right?</p>
-
-          <p>Dont worry about sending the certificate over. If you could send me a pic, that would be great, and then when Lola goes for her exam i can ask her to bring it. Txs!</p>
-
-          <p>About the flat, i have no specific info. I agree a market study is necessary as well as seeing families potential future needs to see if it would be a good investment.</p>
-
-          <p>Have you thought about what you want to do, where you want to go? Hard to decide right?</p>
-
-          <p>Primavera sound sounds like lots of fun! Ever since i discovered pretty islands ive become a bit lamer at partying, sigh.</p>
-
-          <p>My work is going ok, they called me to interpret for bill clinton the day i arrived, whonwas dining with the president of colombia. But then bill clinton decided not to talk for the press so i just drank wine and came home.</p>
-
-          <p>A couple days ago they requestrd my services at the biggest shipyard here. But its an exciting mission, because i go with the clients in a small private army plane to the south extreme of Colombia to visit a port there.</p>
-
-          <p>Hope it works out, cuz i like the idea of being part of a "mision" to exotic places!</p>
-        </div>
-      </div>
-    </div>
-    <div class="input-container">
-      <textarea class="message-input">
-
-
---
-Pedro Solá</textarea>
-      <div class="send-button clickable"></div>
-    </div>
-  </div>
 
 </body>
 </html>
