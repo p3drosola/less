@@ -2,6 +2,15 @@ $main-color: #5CBF94
 $message-tile-padding: 20px
 $message-title-avatar-size: 66px
 
+@mixin darken1
+  background-color: rgba(0,0,0, .05)
+
+@mixin darken2
+  background-color: rgba(0,0,0, .1)
+
+@mixin lighten1
+  background-color: rgba(255, 255, 255, .5)
+
 body, html
   padding: 0
   margin: 0
@@ -50,3 +59,4 @@ img
 
 @import 'inbox'
 @import 'detail'
+@import 'workspace'
