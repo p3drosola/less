@@ -3,6 +3,8 @@ var Less = new Backbone.Marionette.Application();
 Less.module('Data', $.noop);
 Less.module('Models', $.noop);
 Less.module('Collections', $.noop);
+Less.module('Views', $.noop);
+
 
 Less.module('Config', function (Config) {
 
@@ -19,7 +21,8 @@ Less.module('Config', function (Config) {
 });
 
 Less.addInitializer(function () {
-  Less.Data.threads = new Less.Collections.Threads();
+  Less.Data.messages = new Less.Collections.Messages();
+  Less.Data.messages.fetch();
 });
 
 $($.proxy(Less.start, Less));

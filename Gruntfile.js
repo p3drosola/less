@@ -36,6 +36,10 @@ module.exports = function(grunt) {
       js: {
         files: 'src/javascripts/**/*.js',
         tasks: ['copy:js', 'livereload']
+      },
+      handlebars: {
+        files: 'src/templates/**/*.hbs',
+        tasks: ['handlebars']
       }
     },
     connect: {
@@ -62,6 +66,20 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'src/javascripts', src: '**', dest: 'dist/javascripts'}
         ]
       }
+    },
+    handlebars: {
+      compile: {
+        options: {
+          namespace: "Less.Templates",
+          processName: function (filename) {
+            filename = filename.replace(/^src\/templates\//, '').replace(/\.hbs$/, '');
+            return filename.replace('/', '.');
+          }
+        },
+        files: {
+          "dist/javascripts/templates.js": "src/templates/**/*.hbs",
+        }
+      }
     }
 
     // concat: {
@@ -80,5 +98,5 @@ module.exports = function(grunt) {
 
   require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['livereload-start', 'compass', 'copy', 'connect', 'regarde',]);
+  grunt.registerTask('default', ['livereload-start', 'compass', 'copy', 'handlebars', 'connect', 'regarde',]);
 };
