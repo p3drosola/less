@@ -1,7 +1,7 @@
-module.exports = function(grunt) {
+'use strict';
+module.exports = function (grunt) {
 
   // TODO clean dist dir
-
   grunt.initConfig({
     compass: {
       dist: {

@@ -1,0 +1,75 @@
+{
+    "passfail"      : false,
+    "maxerr"        : 100,
+
+    "browser"       : true,
+
+    "node"          : true,
+    "rhino"         : false,
+    "couch"         : false,
+    "wsh"           : true,
+
+    "jquery"        : true,
+    "prototypejs"   : true,
+    "mootools"      : false,
+    "dojo"          : false,
+
+    "predef"        : [
+        "Teambox"
+      , "_"
+      , "Backbone"
+      , "Marionette"
+      , "Templates"
+      , "Position"
+      , "Sortable"
+      , "I18n"
+      , "Modernizr"
+      , "Pusher"
+      , "KeyEvent"
+      , "chrome"
+      , "define"
+    ],
+
+    "indent"        : 2,
+    "maxlen"        : 120,
+
+    "debug"         : true,
+    "devel"         : true,
+
+    "es5"           : true,
+    "strict"        : false,
+    "globalstrict"  : false,
+
+
+    "asi"           : false,
+    "laxbreak"      : true,
+    "laxcomma"      : true,
+    "bitwise"       : true,
+    "boss"          : false,
+    "curly"         : true,
+    "eqeqeq"        : true,
+    "eqnull"        : false,
+    "evil"          : false,
+    "expr"          : false,
+    "forin"         : true,
+    "immed"         : true,
+    "latedef"       : true,
+    "loopfunc"      : false,
+    "noarg"         : true,
+    "regexp"        : false,
+    "regexdash"     : false,
+    "scripturl"     : true,
+    "shadow"        : false,
+    "supernew"      : false,
+    "undef"         : true,
+
+    "newcap"        : true,
+    "noempty"       : true,
+    "nonew"         : true,
+    "nomen"         : false,
+    "onevar"        : true,
+    "plusplus"      : false,
+    "sub"           : false,
+    "trailing"      : true,
+    "white"         : true
+}
