@@ -1,7 +1,7 @@
-Less.module('Views.Message', function (Message) {
+Less.module('Views.Messages', function (Messages) {
   var Item = {
     className: 'message-tile',
-    template: '#message-item'
+    template: Less.Templates['messages.item']
   };
 
   Item.onRender = function () {
@@ -11,8 +11,10 @@ Less.module('Views.Message', function (Message) {
   Item.serializeData = function () {
     return {
       from: this.model.getFrom()
+    , body: this.model.getBody()
+    , subject: this.model.get('subject')
     };
   };
 
-  Message.Item = Marionette.ItemView.extend(Item);
+  Messages.Item = Marionette.ItemView.extend(Item);
 });

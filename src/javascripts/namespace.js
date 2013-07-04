@@ -12,7 +12,14 @@ Less.module('Config', function (Config) {
   Config.account_id = '51a4debc064ba3a21400002f';
 
   Config.accountScope = function (url) {
-    return Config.api_url + 'accounts/' + Config.account_id + '/' + url;
+    var url = Config.api_url + 'accounts/' + Config.account_id + '/' + url;
+    if (url.indexOf('?') == -1) {
+      url += '?';
+    } else {
+      url += '&';
+    }
+    url += 'cachebuster=' + Math.random();
+    return url;
   };
 
 });
@@ -20,6 +27,7 @@ Less.module('Config', function (Config) {
 Less.addInitializer(function () {
   Less.Data.messages = new Less.Collections.Messages();
   Less.Data.messages.fetch();
+  var l = new Less.Views.Messages.List({collection: Less.Data.messages}); $('body').append(l.render().el);
 });
 
 $($.proxy(Less.start, Less));

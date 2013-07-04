@@ -3,8 +3,10 @@ Less.module('Models', function (Models) {
   var Message = {
   };
 
-  Message.getPlainBody = function () {
-    return _.findWhere(this.get('body'), {type: 'text/plain'});
+  Message.getBody = function (type) {
+    var type = type || 'text/plain',
+    body = _.findWhere(this.get('body') || [], {type: type});
+    return body ? body.content : '';
   };
 
   Message.getFrom = function () {
