@@ -8,14 +8,11 @@ Less.module('Views', $.noop);
 
 Less.module('Config', function (Config) {
 
-  Config.api_endpoint = 'https://api.context.io/2.0/';
-  Config.api_key = 'c90eiq20';
-  Config.api_secret = '6XLt2Pfovc5ymsWE';
-
+  Config.api_url = 'http://localhost:9000/';
   Config.account_id = '51a4debc064ba3a21400002f';
 
   Config.accountScope = function (url) {
-    return Config.api_endpoint + Config.account_id + '/' + url;
+    return Config.api_url + 'accounts/' + Config.account_id + '/' + url;
   };
 
 });

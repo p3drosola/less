@@ -15,17 +15,11 @@
     "dojo"          : false,
 
     "predef"        : [
-        "Teambox"
+        "Less"
       , "_"
       , "Backbone"
       , "Marionette"
       , "Templates"
-      , "Position"
-      , "Sortable"
-      , "I18n"
-      , "Modernizr"
-      , "Pusher"
-      , "KeyEvent"
       , "chrome"
       , "define"
     ],

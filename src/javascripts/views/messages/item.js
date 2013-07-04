@@ -1,5 +1,4 @@
 Less.module('Views.Message', function (Message) {
-  console.log('item');
   var Item = {
     className: 'message-tile',
     template: '#message-item'
