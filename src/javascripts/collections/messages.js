@@ -12,7 +12,7 @@ Less.module('Collections', function (Collections) {
     this.chromeFetch();
   };
 
-  Backbone.chromeStorage('messages', Messages);
+  Backbone.chromeStorage('messages', Messages, {debug: true});
   Collections.Messages = Backbone.Collection.extend(Messages);
 
 });
