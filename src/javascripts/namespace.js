@@ -24,10 +24,23 @@ Less.module('Config', function (Config) {
 
 });
 
+function updateTitle () {
+  document.title = "(" + Less.Data.messages.length + ") Inbox";
+};
+
 Less.addInitializer(function () {
   Less.Data.messages = new Less.Collections.Messages();
+  Less.Data.threads = new Less.Collections.Threads();
+
+
   Less.Data.messages.fetch();
-  var l = new Less.Views.Messages.List({collection: Less.Data.messages}); $('body').append(l.render().el);
+
+  // var l = new Less.Views.Messages.List({collection: Less.Data.messages});
+  // $('body').append(l.render().el);
+  //Less.Data.messages.on('reset', updateTitle);
+  //Less.Data.messages.on('sync', updateTitle);
+  //Less.Data.threads.fetch();
+
 });
 
 $($.proxy(Less.start, Less));
