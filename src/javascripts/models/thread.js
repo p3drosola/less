@@ -1,12 +1,6 @@
 Less.module('Models', function (Models) {
 
-  var Thread = {}, ThreadStatic = {},
-  id_regex = /https:\/\/api\.context\.io\/2\.0\/accounts\/[^\/]*\/threads\/gm-(.*)/;
-
-
-  Thread.url = function () {
-    return Less.Config.accountScope('threads/' + this.id + '/?include_body=1&include_flags=1');
-  };
+  var Thread = {};
 
   Thread.hasMany = function () {
     return {
@@ -14,14 +8,36 @@ Less.module('Models', function (Models) {
     };
   };
 
-  ThreadStatic.getIdFromUrl = function (url) {
-    var match = id_regex.exec(url);
-    if (match && match[1]) {
-      return match[1];
-    }
-    return null;
+  Thread.messages = function () {
+    if (!this._messages) {
+      this._messages = new Backbone.VitualCollection(Less.Data.messages, {
+        filter: {
+          thread_id: this.id
+        }
+      });
+    };
+    return this._messages;
   };
 
-  Models.Thread = Backbone.Model.extend(Thread, ThreadStatic);
+
+  Thread.getFrom = function () {
+    return this.messages().at(0).getFrom();
+  };
+
+  Thread.getBody = function () {
+    return this.messages().at(0).getBody();
+  };
+
+  Thread.url = function () {
+    return Less.Config.accountScope('threads/' + this.id + '/?include_body=1&include_flags=1');
+  };
+
+  Thread.onRemove = function () {
+    if (this._messages) {
+      this._messages.stopListening();
+    }
+  };
+
+  Models.Thread = Backbone.Model.extend(Thread);
 
 });
