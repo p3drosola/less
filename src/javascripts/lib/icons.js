@@ -1,10 +1,12 @@
 $(function () {
 
   var Icons = {
+    colors: ['#1ABC9C', '#2ECC71',  '#E74C3C', '#3498DB', '#9B59B6', '#34495E', '#F1C40F',
+              '#E67E22', '#E74C3C', '#95A5A6'],
     formulas: {}
   };
 
-  Icons.formulas.slide = function(canvas, color) {
+  Icons.formulas.slide = function (canvas, color) {
 
     var ctx = canvas.getContext('2d'),
         base_color = jQuery.Color(color),
@@ -17,8 +19,8 @@ $(function () {
     ctx.beginPath();
     ctx.moveTo(0, 20);
     ctx.lineTo(66, 66);
-    ctx.lineTo(0,66);
-    ctx.lineTo(0,0);
+    ctx.lineTo(0, 66);
+    ctx.lineTo(0, 0);
     ctx.fill();
   };
 
@@ -75,12 +77,10 @@ $(function () {
     return array;
   }
 
-  var colors = ['#1ABC9C', '#2ECC71',  '#E74C3C', '#3498DB', '#9B59B6', '#34495E', '#F1C40F',
-                '#E67E22', '#E74C3C', '#95A5A6'];
 
-  _.each(Icons.formulas, function(formula) {
-    shuffle(colors);
-    _.each(colors, function (color) {
+  _.each(Icons.formulas, function (formula) {
+    shuffle(Icons.colors);
+    _.each(Icons.colors, function (color) {
       var canvas = $('<canvas width="66px" height="66px">&nbsp;').appendTo('body')[0];
       formula(canvas, color);
     });
